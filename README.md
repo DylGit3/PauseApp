@@ -5,9 +5,9 @@ Made by: Talhah Raheem, Dylan Geraci, and Omar Rafiq
 
 ---
 
-## 🚀 Features
+## 🚀 Planned Features
 
-- 🔍 App usage tracking
+- 🔍 App usage tracking 
 - 🔔 Custom notification manager
 
 
