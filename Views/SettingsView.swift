@@ -1,50 +1,74 @@
-//
-//  SettingsView.swift
-//  
-//
-//  Created by Dylan Geraci on 4/13/25.
-//
-
 import SwiftUI
 
 struct SettingsView: View {
+    @Environment(\.dismiss) var dismiss
+
     @AppStorage("timeLimit") var timeLimit: Int = 600
-    @State private var selectedApps: [String] = []
-    private let availableApps = ["TikTok", "Instagram", "YouTube", "Reddit", "X"] // add more as needed
+
+    @State private var starTwinkle = false
+    let twinkleTimer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
 
     var body: some View {
-        Form {
-            Section(header: Text("Time Limit")) {
-                Stepper(value: $timeLimit, in: 60...3600, step: 60) {
-                    Text("Limit: \(timeLimit / 60) minutes")
-                }
-            }
+        ZStack {
+            // 🌌 Space background
+            GeometryReader { geometry in
+                ZStack {
+                    LinearGradient(
+                        gradient: Gradient(colors: [.black, .blue.opacity(0.8)]),
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                    .ignoresSafeArea()
 
-            Section(header: Text("Tracked Apps")) {
-                List {
-                    ForEach(availableApps, id: \.self) { app in
-                        Toggle(app, isOn: Binding(
-                            get: { selectedApps.contains(app) },
-                            set: { isOn in
-                                if isOn {
-                                    if selectedApps.count < 50 {
-                                        selectedApps.append(app)
-                                    }
-                                } else {
-                                    selectedApps.removeAll { $0 == app }
-                                }
-                            }
-                        ))
+                    ForEach(0..<40, id: \.self) { _ in
+                        Circle()
+                            .frame(width: 2, height: 2)
+                            .foregroundColor(.white.opacity(starTwinkle ? 0.9 : 0.3))
+                            .position(
+                                x: CGFloat.random(in: 0...geometry.size.width),
+                                y: CGFloat.random(in: 0...geometry.size.height)
+                            )
                     }
                 }
             }
 
-            if selectedApps.count >= 50 {
-                Text("You can only track up to 50 apps.")
-                    .foregroundColor(.red)
+            VStack {
+                // 🔙 Custom back bar
+                HStack {
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        Image(systemName: "chevron.left")
+                            .font(.title2)
+                            .foregroundColor(.white)
+                    }
+                    Spacer()
+                    Text("Settings")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                    Spacer()
+                    Image(systemName: "chevron.left")
+                        .opacity(0)
+                }
+                .padding()
+
+                // ⏱ Time limit stepper
+                Form {
+                    Section(header: Text("Time Limit").foregroundColor(.white)) {
+                        Stepper(value: $timeLimit, in: 300...3600, step: 60) {
+                            Text("Limit: \(timeLimit / 60) minutes")
+                        }
+                    }
+                }
+                .scrollContentBackground(.hidden)
             }
         }
-        .navigationTitle("Settings")
+        .onReceive(twinkleTimer) { _ in
+            withAnimation(.easeInOut(duration: 1)) {
+                starTwinkle.toggle()
+            }
+        }
+        .navigationBarHidden(true)
     }
 }
 

@@ -14,6 +14,7 @@
 		19E6E8352DABC309008DB8A8 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E6E82E2DABC309008DB8A8 /* SettingsView.swift */; };
 		19E6E8362DABC309008DB8A8 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E6E8252DABC309008DB8A8 /* NotificationManager.swift */; };
 		19E6E8372DABC309008DB8A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19E6E8292DABC309008DB8A8 /* Assets.xcassets */; };
+		19E6E8452DAC3A2C008DB8A8 /* TrackedAppsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E6E8442DAC3A20008DB8A8 /* TrackedAppsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		19E6E82B2DABC309008DB8A8 /* UsageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageViewModel.swift; sourceTree = "<group>"; };
 		19E6E82D2DABC309008DB8A8 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		19E6E82E2DABC309008DB8A8 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		19E6E8442DAC3A20008DB8A8 /* TrackedAppsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackedAppsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -150,6 +152,7 @@
 		19E6E82F2DABC309008DB8A8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				19E6E8442DAC3A20008DB8A8 /* TrackedAppsView.swift */,
 				19E6E82E2DABC309008DB8A8 /* SettingsView.swift */,
 				19E6E82D2DABC309008DB8A8 /* MainScreen.swift */,
 			);
@@ -305,6 +308,7 @@
 				19E6E8322DABC309008DB8A8 /* UsageViewModel.swift in Sources */,
 				19E6E8332DABC309008DB8A8 /* TrackedApp.swift in Sources */,
 				19E6E8342DABC309008DB8A8 /* MainScreen.swift in Sources */,
+				19E6E8452DAC3A2C008DB8A8 /* TrackedAppsView.swift in Sources */,
 				19E6E8352DABC309008DB8A8 /* SettingsView.swift in Sources */,
 				19E6E8362DABC309008DB8A8 /* NotificationManager.swift in Sources */,
 			);
