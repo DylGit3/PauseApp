@@ -39,7 +39,12 @@ struct MainScreen: View {
         let seconds = secondsUntilMidnight % 60
         return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
     }
-
+    private var timeLimitInMinutes: Binding<Int> {
+        Binding<Int>(
+            get: { timeLimit / 60 },
+            set: { timeLimit = $0 * 60 }
+        )
+    }
     // MARK: - Initialization
     init() {
         if let lockoutStart = userDefaults.object(forKey: lockoutStartKey) as? Date {
@@ -133,11 +138,11 @@ struct MainScreen: View {
 
 
 
-                    Text("Screen Time: \(timeSpent) seconds")
+                    Text("Screen Time: \(timeSpent / 60) min \(timeSpent % 60) sec")
                         .font(.title2)
                         .foregroundColor(.white.opacity(starTwinkle ? 1.0 : 0.8))
 
-                    TextField("Time Limit (seconds)", value: $timeLimit, format: .number)
+                    TextField("Time Limit (minutes)", value: timeLimitInMinutes, format: .number)
                         .textFieldStyle(.roundedBorder)
                         .padding(.horizontal)
                         .keyboardType(.numberPad)
