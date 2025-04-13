@@ -142,7 +142,7 @@ struct MainScreen: View {
                         .padding(.horizontal)
                         .keyboardType(.numberPad)
                         .disabled(isLocked)
-                        .foregroundColor(.white)
+                        .foregroundColor(.black)
                         .background(
                             RoundedRectangle(cornerRadius: 8)
                                 .stroke(Color.purple, lineWidth: 2)
