@@ -143,7 +143,7 @@ struct MainScreen: View {
                                         .clipShape(Capsule())
                                 }
                                 .disabled(unlockCountdown > 0)
-                                NavigationLink(destination: Settings()) {
+                                NavigationLink(destination: SettingsView()) {
                                     Text("Go to Space Station (Settings)")
                                         .font(.headline)
                                         .padding()
@@ -151,6 +151,7 @@ struct MainScreen: View {
                                         .foregroundColor(.white)
                                         .clipShape(Capsule())
                                 }
+
                             }
                         )
                 }
