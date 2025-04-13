@@ -16,5 +16,7 @@
 
 - Swift / SwiftUI
 - Xcode
-- MVVM architecture
+
+<img width="346" alt="image" src="https://github.com/user-attachments/assets/58566a13-cb3f-4c4a-9430-014a93cd7d9e" />
+
 
